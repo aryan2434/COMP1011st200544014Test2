@@ -10,6 +10,8 @@ import java.util.List;
 public class Utility {
     public static List<Business> getBusinessData(String fileName) {
         Gson gson = new Gson();
+        //code testing done
+
         try (
                 FileReader fileReader = new FileReader(fileName);
         ) {
