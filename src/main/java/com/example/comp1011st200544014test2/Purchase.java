@@ -41,6 +41,11 @@ public class Purchase {
         return image;
     }
 
+    //this is for the total purchase
+    public double getSalePriceTwo() {
+        return Double.parseDouble(salePrice);
+    }
+
     @Override
     public String toString() {
         return "Purchase{" +

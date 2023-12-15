@@ -46,4 +46,9 @@ public class Customers {
                 ", purchases=" + purchases +
                 '}';
     }
+    public double getPurchaseValue() {
+        return purchases.stream()
+                .mapToDouble(Purchase::getSalePriceTwo)
+                .sum();
+    }
 }
