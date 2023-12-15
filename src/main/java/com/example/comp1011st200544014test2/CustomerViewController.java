@@ -120,6 +120,34 @@ public class CustomerViewController {
         productListView.setItems(purchaseDetails);
         productListView.setVisible(true);
         customerLabel.setVisible(true);
+        productListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                Purchase selectedPurchase = findPurchaseByString(newValue, purchases);
+
+                displayProductDetails(selectedPurchase);
+            }
+        });
+
+    }
+
+    private Purchase findPurchaseByString(String purchaseString, List<Purchase> purchases) {
+        String idString = purchaseString.substring(purchaseString.indexOf("ID: ") + 4, purchaseString.indexOf(","));
+
+        int selectedId = Integer.parseInt(idString.trim());
+
+        return null;
+    }
+
+    private void displayProductDetails(Purchase purchase) {
+        if (purchase != null) {
+            regularPrice.setText("Regular Price: $" + purchase.getRegularPrice());
+            salePrice.setText("Sale Price: $" + purchase.getSalePrice());
+            saving.setText("Saving: $" + (Double.parseDouble(purchase.getRegularPrice()) - Double.parseDouble(purchase.getSalePrice())));
+
+            regularPrice.setVisible(true);
+            salePrice.setVisible(true);
+            saving.setVisible(true);
+        }
     }
 
 }
