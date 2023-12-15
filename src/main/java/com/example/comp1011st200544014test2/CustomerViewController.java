@@ -60,6 +60,11 @@ public class CustomerViewController {
     @FXML
     public void initialize() {
         List<Business> businessData = Utility.getBusinessData("customers.json");
+        productListView.setVisible(false);
+        productImage.setVisible(false);
+        regularPrice.setVisible(false);
+        saving.setVisible(false);
+        salePrice.setVisible(false);
 
         if (!businessData.isEmpty()) {
             Business business = businessData.get(0);
