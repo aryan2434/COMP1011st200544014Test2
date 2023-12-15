@@ -46,6 +46,11 @@ public class Customers {
                 ", purchases=" + purchases +
                 '}';
     }
+    public double getSavings() {
+        return purchases.stream()
+                .mapToDouble(Purchase::getSavings)
+                .sum();
+    }
     public double getPurchaseValue() {
         return purchases.stream()
                 .mapToDouble(Purchase::getSalePriceTwo)

@@ -41,7 +41,12 @@ public class Purchase {
         return image;
     }
 
-    //this is for the total purchase
+    //this is for the total purchase and saving
+    public double getSavings() {
+        double regularPriceValue = Double.parseDouble(regularPrice);
+        double salePriceValue = Double.parseDouble(salePrice);
+        return regularPriceValue - salePriceValue;
+    }
     public double getSalePriceTwo() {
         return Double.parseDouble(salePrice);
     }
