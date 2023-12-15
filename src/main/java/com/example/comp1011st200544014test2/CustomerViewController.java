@@ -65,6 +65,7 @@ public class CustomerViewController {
         regularPrice.setVisible(false);
         saving.setVisible(false);
         salePrice.setVisible(false);
+        customerLabel.setVisible(false);
 
         if (!businessData.isEmpty()) {
             Business business = businessData.get(0);
@@ -95,6 +96,12 @@ public class CustomerViewController {
             });
 
             tableView.refresh();
+            tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+                if (newSelection != null) {
+                    // Display selected customer's purchases in the listView
+                    displayPurchasesList(newSelection.getPurchases());
+                }
+            });
         }}
     @FXML
     void getAllCustomer(ActionEvent event) {
@@ -105,4 +112,14 @@ public class CustomerViewController {
     void getHigherSavingCustomer(ActionEvent event) {
 
     }
+    private void displayPurchasesList(List<Purchase> purchases) {
+        ObservableList<String> purchaseDetails = FXCollections.observableArrayList();
+        for (Purchase purchase : purchases) {
+            purchaseDetails.add("ID: " + purchase.getId() + ", SKU: " + purchase.getSKU() + ", Name: " + purchase.getName());
+        }
+        productListView.setItems(purchaseDetails);
+        productListView.setVisible(true);
+        customerLabel.setVisible(true);
+    }
+
 }
