@@ -1,0 +1,21 @@
+.root{
+    -fx-font: 10pt "Arial";
+    -fx-text-fill: white;
+    -fx-background-color: black;
+}
+#customerLabel, #numOfCustomer{
+    -fx-text-fill: white;
+    -fx-font: 8pt "Arial";
+
+}
+#salePrice,#regularPrice, #saving{
+    -fx-text-fill: white;
+    -fx-font: 10pt "Arial";
+}
+#mainLabel{
+    -fx-text-fill: white;
+    -fx-font: bold 20pt "Arial";
+}
+.button{
+    -fx-background-radius: 15,15,15,15;
+}
